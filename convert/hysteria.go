@@ -55,6 +55,7 @@ func hysteria(p *clash.Proxies, s *singbox.SingBoxOut) error {
 		s.TLS.Certificate = p.CaStr1
 	}
 	s.DisableMtuDiscovery = bool(p.DisableMtuDiscovery)
+	s.HopPorts = p.Ports
 	return nil
 }
 
@@ -77,6 +78,7 @@ func hysteia2(p *clash.Proxies, s *singbox.SingBoxOut) ([]singbox.SingBoxOut, er
 			Value: p.ObfsPassword,
 		}
 	}
+	s.HopPorts = p.Ports
 	return []singbox.SingBoxOut{*s}, nil
 }
 
